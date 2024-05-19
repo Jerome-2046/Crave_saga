@@ -228,7 +228,7 @@ class Riad(QThread):
             self.activity2mission()
             self.mission_choose()
             while self.set_raid_battle():
-                sleep(0.5)
+                sleep(1)
         if 1 in self.needs:
             self.activity2help()
             while self.set_raid_help():
@@ -239,14 +239,14 @@ class Riad(QThread):
             first = True
             while self.set_raid_sent(first):
                 first = False
-                sleep(0.5)
+                sleep(1)
         if 3 in self.needs:
             self.activity2box()
             cnt = 0
             while self.set_box():
                 cnt += 1
                 self.print('完成第%d次扭蛋' % cnt)
-                sleep(0.5)
+                sleep(1)
 
     def run(self):
         self.main()
