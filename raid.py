@@ -247,6 +247,7 @@ class Riad(QThread):
                 cnt += 1
                 self.print('完成第%d次扭蛋' % cnt)
                 sleep(1)
+        self.print('完成操作')
 
     def run(self):
         self.main()
