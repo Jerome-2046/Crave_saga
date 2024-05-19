@@ -228,7 +228,7 @@ class Riad(QThread):
             self.activity2mission()
             self.mission_choose()
             while self.set_raid_battle():
-                sleep(1)
+                sleep(2)
         if 1 in self.needs:
             self.activity2help()
             while self.set_raid_help():

@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QDockWidget, QPu
     QGridLayout, QMenu, QAction, QTabWidget, QCheckBox, QButtonGroup, QLabel
 
 from daily import Daily
-from test import Riad
+from raid import Riad
 from operate import Operate
 
 
