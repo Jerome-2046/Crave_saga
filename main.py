@@ -2,6 +2,7 @@ import os
 import sys
 
 from PyQt5.QtCore import Qt, QUrl, QTimer, QEvent
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEngineProfile, QWebEnginePage
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QDockWidget, QPushButton, QTextEdit, QVBoxLayout, \
     QGridLayout, QMenu, QAction, QTabWidget, QCheckBox, QButtonGroup, QLabel
@@ -37,9 +38,10 @@ class DailyWidget(QWidget):
         self.layout.setSpacing(10)
         self.layout.setContentsMargins(5, 5, 5, 5)
 
-        self.label0 = QLabel("请在无限池top开始脚本")
+        self.label0 = QLabel("请在游戏首页开始脚本")
         self.label0.setFixedSize(272, 30)
         self.label0.setStyleSheet("color: red;")
+        self.layout.addWidget(self.label0, self.layout.rowCount() - 1, 1, 1, 6)
 
         self.label1 = QLabel("任务选取")
         self.group1 = QButtonGroup()
@@ -71,7 +73,7 @@ class DailyWidget(QWidget):
         self.label1.setFixedSize(272, 30)
         # self.label1.setStyleSheet("border-top: 1px solid #D3D3D3;")
         self.group1.setExclusive(False)
-        self.layout.addWidget(self.label1, self.layout.rowCount() - 1, 1, 1, 6)
+        self.layout.addWidget(self.label1, self.layout.rowCount(), 1, 1, 6)
         addCheckBox(self.layout, "训练室任务", self.group1, self.layout.rowCount(), 1, 1, 3)
         addCheckBox(self.layout, "工会支援", self.group1, self.layout.rowCount() - 1, 4, 1, 3)
         addCheckBox(self.layout, "探索回收", self.group1, self.layout.rowCount(), 1, 1, 3)
@@ -145,9 +147,10 @@ class RaidWidget(QWidget):
         self.layout.setSpacing(10)
         self.layout.setContentsMargins(5, 5, 5, 5)
 
-        self.label0 = QLabel("请在首页开始脚本")
+        self.label0 = QLabel("请在无限池top开始脚本")
         self.label0.setFixedSize(272, 30)
         self.label0.setStyleSheet("color: red;")
+        self.layout.addWidget(self.label0, self.layout.rowCount() - 1, 1, 1, 6)
 
         self.label1 = QLabel("任务选取")
         self.group1 = QButtonGroup()
@@ -171,7 +174,7 @@ class RaidWidget(QWidget):
         self.label1.setFixedSize(272, 30)
         # self.label1.setStyleSheet("border-top: 1px solid #D3D3D3;")
         # self.group1.setExclusive(False)
-        self.layout.addWidget(self.label1, self.layout.rowCount() - 1, 1, 1, 6)
+        self.layout.addWidget(self.label1, self.layout.rowCount(), 1, 1, 6)
         addCheckBox(self.layout, "活动任务", self.group1, self.layout.rowCount(), 1, 1, 3, checked=False)
         addCheckBox(self.layout, "raid救援", self.group1, self.layout.rowCount() - 1, 4, 1, 3, checked=False)
         addCheckBox(self.layout, "raid召唤", self.group1, self.layout.rowCount(), 1, 1, 3, checked=False)
@@ -257,9 +260,10 @@ class TestWidget(QWidget):
 class Window(QMainWindow):
     def __init__(self, profile_name="default"):
         super().__init__()
-        self.setWindowTitle("crave saga")
+        self.setWindowTitle("Crave Saga")
         self.setGeometry(100, 100, 667, 667)
         self.setMinimumSize(375, 667)
+        self.setWindowIcon(QIcon("app/icon.png"))
 
         # 创建浏览器窗口
         self.browser = QWebEngineView()
@@ -461,7 +465,7 @@ class Window(QMainWindow):
         self.browser.page().runJavaScript(script)
         self.sidebar.setVisible(True)
         self.sidebarIsVisible = True
-        self.resize(self.width(), self.height() + 292 * self.sidebarIsVisible)
+        self.resize(self.width() + 292 * self.sidebarIsVisible, self.height())
 
 
 if __name__ == "__main__":
