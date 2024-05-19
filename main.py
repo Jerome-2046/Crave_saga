@@ -227,6 +227,11 @@ class TestWidget(QWidget):
         self.layout.setSpacing(10)
         self.layout.setContentsMargins(5, 5, 5, 5)
 
+        self.label0 = QLabel("牛牛冲撞！")
+        self.label0.setFixedSize(272, 30)
+        self.label0.setStyleSheet("color: red;")
+        self.layout.addWidget(self.label0, self.layout.rowCount() - 1, 1, 1, 6)
+
         addButton(self.layout, "点击测试", self.handleDailyBtn1, self.layout.rowCount(), 1, 1, 1)
         addButton(self.layout, "区域测试", self.handleDailyBtn2, self.layout.rowCount(), 1, 1, 1)
         self.setLayout(self.layout)
