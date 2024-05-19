@@ -37,6 +37,10 @@ class DailyWidget(QWidget):
         self.layout.setSpacing(10)
         self.layout.setContentsMargins(5, 5, 5, 5)
 
+        self.label0 = QLabel("请在无限池top开始脚本")
+        self.label0.setFixedSize(272, 30)
+        self.label0.setStyleSheet("color: red;")
+
         self.label1 = QLabel("任务选取")
         self.group1 = QButtonGroup()
         self.area1()
@@ -141,6 +145,10 @@ class RaidWidget(QWidget):
         self.layout.setSpacing(10)
         self.layout.setContentsMargins(5, 5, 5, 5)
 
+        self.label0 = QLabel("请在首页开始脚本")
+        self.label0.setFixedSize(272, 30)
+        self.label0.setStyleSheet("color: red;")
+
         self.label1 = QLabel("任务选取")
         self.group1 = QButtonGroup()
         self.area1()
@@ -227,7 +235,7 @@ class TestWidget(QWidget):
 
     def handleDailyBtn1(self):
         text = self.text_label.toPlainText()
-        if not text:
+        if not text or text.count(",") < 1 or text.count(".") < 2:
             return
         area = tuple(float(x) for x in text.split(","))
         print(area)
@@ -236,7 +244,7 @@ class TestWidget(QWidget):
 
     def handleDailyBtn2(self):
         text = self.text_label.toPlainText()
-        if not text:
+        if not text or text.count(",") < 3 or text.count(".") < 4:
             return
         area = tuple(float(x) for x in text.split(","))
         if len(area) < 4:
