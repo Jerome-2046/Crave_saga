@@ -181,7 +181,7 @@ class Riad(QThread):
         return self.operate.clickCheck(0.67, 0.85, 'saga_img/raid/确认扭蛋.png', area)
 
     def box_open_confirm(self):
-        self.print('点击确认：', end='')
+        self.print('点击确认扭蛋OK：', end='')
         area = get_area(0.06, 0.026, 0.075, 0.025, self.game_area)
         return self.operate.clickCheck(0.67, 0.6875, 'saga_img/raid/box.png', area)
 
@@ -190,10 +190,10 @@ class Riad(QThread):
         self.operate.clickR(0.75, 0.0875)
         sleep(0.3)
         area = get_area(0.35, 0.275, 0.3, 0.035, self.game_area)
-        return self.operate.clickCheck(0.67, 0.6875, 'saga_img/raid/确认.png', area)
+        return self.operate.clickCheck(0.75, 0.0875, 'saga_img/raid/确认.png', area)
 
     def box_reset_confirm(self):
-        self.print('点击确认：', end='')
+        self.print('点击重置确认：', end='')
         self.operate.clickR(0.67, 0.6875)
         sleep(0.3)
         area = get_area(0.35, 0.275, 0.3, 0.035, self.game_area)
@@ -228,7 +228,7 @@ class Riad(QThread):
             self.activity2mission()
             self.mission_choose()
             while self.set_raid_battle():
-                sleep(2)
+                sleep(3)
         if 1 in self.needs:
             self.activity2help()
             while self.set_raid_help():
