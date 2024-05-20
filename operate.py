@@ -34,7 +34,7 @@ class Operate:
             click()
             sleep(delay)
 
-    def clickCheck(self, left: float, top: float, path, area, d1=1.0, d2=1.0, d3=0.3, accuracy=0.8, times=3, big=True):
+    def clickCheck(self, left: float, top: float, path, area, d1=1.0, d2=1.0, d3=0.2, accuracy=0.8, times=5, big=True):
         """
         点击相对位置并根据匹配结果检查是否成功
         :param left: 相对水平位置（左到右）
